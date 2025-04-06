@@ -5,13 +5,25 @@ on:
     branches: [main]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v3
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependências
+        run: npm install
+
       - name: Criar .env
-        run: |
-          echo "VITE_GIPHY_API_KEY=${{ secrets.API_KEY }}" > .env
+        run: echo "VITE_GIPHY_API_KEY=${{ secrets.API_KEY }}" > .env
+
+      - name: Build do projeto
+        run: npm run build
+
+      # Aqui você pode adicionar deploy, por exemplo, para GitHub Pages, Vercel, etc
