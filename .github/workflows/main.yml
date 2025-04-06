@@ -14,4 +14,4 @@ jobs:
 
       - name: Criar .env
         run: |
-          echo "API_KEY=${{ secrets.API_KEY }}" > .env
+          echo "VITE_GIPHY_API_KEY=${{ secrets.API_KEY }}" > .env
