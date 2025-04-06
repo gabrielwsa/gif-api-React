@@ -12,5 +12,6 @@ export const getGifs = async (category) => {
   }));
 
   console.log(gifs);
+  console.log(apiKey);
   return gifs;
 };
