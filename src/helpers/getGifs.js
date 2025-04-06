@@ -1,4 +1,4 @@
-const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
+const apiKey = process.env.VITE_GIPHY_API_KEY;
 
 export const getGifs = async (category) => {
   const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${category}&limit=12`;
